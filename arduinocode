@@ -1,0 +1,157 @@
+#include <Servo.h>
+#include <SoftwareSerial.h>
+
+Servo myservo;
+SoftwareSerial BTSerial(3, 2); // RX_TX
+
+const int xpin = A1;                  // x-axis of the accelerometer
+const int ypin = A2;                  // y-axis
+const int zpin = A3;                  // z-axis (only on 3-axis models)
+
+int ledcolor = 0;
+int a = 1000; //this sets how long the stays one color for
+int red = 11; //this sets the red led pin
+int green = 12; //this sets the green led pin
+int blue = 13; //this sets the blue led pin
+
+int cr=0, cr2=244; // color custom
+int cg=0, cg2=0;
+int cb=243, cb2=0;
+
+int bellsound = 1;
+int changecolor = 0;
+int b = -70;
+
+int sampleDelay = 150;   //number of milliseconds between reading
+
+void setup()
+{
+
+  // initialize the serial communications:
+  Serial.begin(9600);
+
+  // set the data rate for the BT port
+  BTSerial.begin(9600);
+  myservo.attach(9); // 모터
+
+myservo.write(0);
+  pinMode(red, OUTPUT); // led
+  pinMode(green, OUTPUT);
+  pinMode(blue, OUTPUT);
+
+
+  //Make sure the analog-to-digital converter takes its reference voltage from
+  // the AREF pin
+  analogReference(EXTERNAL);
+
+  pinMode(xpin, INPUT);
+  pinMode(ypin, INPUT);
+  pinMode(zpin, INPUT);
+}
+
+void loop()
+{
+  //int x = analogRead(xpin);
+  //  delay(1);
+
+  //int y = analogRead(ypin);
+  //  delay(1);
+
+  int z = analogRead(zpin);
+
+  float zero_G = 412.0;
+
+  float scale = 102.3;
+  int znum = ((float)z - zero_G) / scale * 100;
+
+  ////////////////////BT로 부터 데이터 수신
+  if (BTSerial.available()) { // if BT sends something
+    byte data = BTSerial.read();
+
+    if (data == '2') {
+      changecolor = 1;
+      bellsound = 1;
+    }
+    if (data == '4') {
+      changecolor = 0;
+      bellsound = 0;
+    }
+    if (data == '3') {
+      b = -30;
+    }
+    if (data == '5') {
+      b = -60;
+    }
+    if (data == '7') {
+      b = -100;
+    }
+    if (data == 'r') { cr=244; cg=0; cb=0; }  //빨강
+    if (data == 'R') { cr2=244; cg2=0; cb2=0; }
+    if (data == 'b') { cr=0; cg=0; cb=243; } //파랑
+    if (data == 'B') { cr2=0; cg2=0; cb2=243; }
+    if (data == 'g') { cr=76; cg=175; cb=80; }  //초록
+    if (data == 'G') { cr2=76; cg2=175; cb2=80; }
+    if (data == 'l') { cr=205; cg=220; cb=57; } //라임
+    if (data == 'L') { cr2=205; cg2=220; cb2=57; }
+    if (data == 'o') { cr=238; cg=160; cb=0; }  //오렌지
+    if (data == 'O') { cr2=238; cg2=160; cb2=0; }
+    if (data == 'p') { cr=240; cg=98; cb=146; } //핑크
+    if (data == 'P') { cr2=240; cg2=98; cb2=146; }
+    if (data == 'u') { cr=156; cg=39; cb=176; } //보라
+    if (data == 'U') { cr2=156; cg2=39; cb2=176; }
+    if (data == 't') { cr=0; cg=150; cb=136; }  //틸
+    if (data == 'T') { cr2=0; cg2=150; cb2=136; }
+    if (data == 'y') { cr=228; cg=208; cb=0; } //노랑
+    if (data == 'Y') { cr2=228; cg2=208; cb2=0; }
+    if (data == 'k') { cr=0; cg=0; cb=243;       //색상 초기화
+                       cr2=244; cg2=0; cb2=0;}
+    //Serial.print(changecolor);
+    Serial.write(changecolor);
+    Serial.write(data); // write it to serial(serial monitor)
+  }
+
+  
+
+  switch (changecolor) {
+    case 1 :
+      analogWrite(red, cr);
+      analogWrite(blue, cb);
+      analogWrite(green, cg);
+      //Serial.print(((float)x - zero_G)/scale*100);
+      // Serial.print("x  ");
+      // Serial.print(((float)y - zero_G)/scale*100);
+      // Serial.print("y  ");
+
+      Serial.print(((float)z - zero_G) / scale * 100);
+      Serial.print("\n");
+      myservo.write(0);
+      
+      if (znum < b )
+      {
+        BTSerial.write('3');
+        myservo.write(150);
+        //digitalWrite(green, HIGH);
+        delay(2000);
+        changecolor = 0;
+        //digitalWrite(green, LOW);
+        myservo.write(0);
+      }
+
+      //Serial.print("z  \n");
+
+      // delay before next reading:
+      delay(sampleDelay);
+      break;
+
+    case 0 :
+      analogWrite(red, cr2);
+      analogWrite(blue, cb2);
+      analogWrite(green, cg2);
+      //digitalWrite(blue, HIGH);
+      //delay(a);
+      //digitalWrite(blue, LOW);
+      break;
+  }
+
+  //통신해서 스타트로 changecolor 변수 0으로 바꾸면 다시 켜짐
+}

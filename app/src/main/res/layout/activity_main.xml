@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#363636">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="38dp"
+            android:id="@+id/linearLayout">
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="313dp"
+            android:layout_height="wrap_content"
+            android:textSize="10pt"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="@drawable/free"
+            android:id="@+id/free_button"
+            android:layout_alignTop="@+id/linearLayout"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10pt"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="@drawable/charge"
+            android:id="@+id/charge_button"
+            android:layout_below="@+id/free_button"
+            android:layout_alignLeft="@+id/free_button"
+            android:layout_alignStart="@+id/free_button"
+            android:layout_marginTop="34dp"
+            android:layout_alignRight="@+id/free_button"
+            android:layout_alignEnd="@+id/free_button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/help"
+            android:id="@+id/help_button"
+            android:layout_marginTop="43dp"
+            android:layout_below="@+id/charge_button"
+            android:layout_alignLeft="@+id/charge_button"
+            android:layout_alignStart="@+id/charge_button"
+            android:layout_alignRight="@+id/charge_button"
+            android:layout_alignEnd="@+id/charge_button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            android:background="@drawable/option"
+            android:id="@+id/option_button"
+            android:layout_marginTop="34dp"
+            android:layout_below="@+id/help_button"
+            android:layout_alignLeft="@+id/help_button"
+            android:layout_alignStart="@+id/help_button"
+            android:layout_alignRight="@+id/help_button"
+            android:layout_alignEnd="@+id/help_button" />
+
+    </RelativeLayout>
+</RelativeLayout>

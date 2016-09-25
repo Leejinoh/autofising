@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AutoFishing</string>
+    <string name="title_activity_fragment_container">IOT낚시보조시스템</string>
+</resources>

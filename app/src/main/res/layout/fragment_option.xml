@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#363636"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout4">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/main"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout"
+        android:layout_below="@+id/relativeLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
+        >
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/sensitivity"
+            android:layout_toRightOf="@+id/sensitivity">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="낮음"
+                android:textSize="7pt"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="#A4D3EE"
+                android:id="@+id/lowButton"
+                android:checked="false"
+                />
+
+            <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="보통"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#8DB6CD"
+            android:id="@+id/mediumButton"
+                android:checked="false"
+                />
+
+            <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="높음"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#607B8B"
+            android:id="@+id/highButton"
+
+            android:checked="false"
+             />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="설 정"
+                android:textSize="9pt"
+                android:textColor="#ffffff"
+                android:background="#1C1C1C"
+                android:id="@+id/sensSetButton"
+                android:layout_gravity="right" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="민감도"
+            android:textColor="#FFFFFF"
+            android:textSize="12pt"
+            android:id="@+id/sensitivity"
+            android:layout_marginTop="31dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout2"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        >
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:id="@+id/stopButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/stopbutton"
+            android:layout_marginLeft="7dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/startButton"
+            android:layout_toEndOf="@+id/startButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동작설정"
+            android:textSize="12pt"
+            android:textColor="#FFFFFF"
+            android:id="@+id/textView"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:id="@+id/startButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/startbutton"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/relativeLayout3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LED 설정"
+            android:textColor="#FFFFFF"
+            android:textSize="12pt"
+            android:id="@+id/textView2"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup2"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true">
+
+
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <CheckBox
+                            android:text="Red"
+                            android:id="@+id/checkBoxRed"
+                            android:background="#f44336"
+                            android:checked="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/radioButton8"
+                            android:layout_toStartOf="@+id/radioButton8"
+                            android:layout_column="0" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Blue"
+                            android:background="#2196f3"
+                            android:id="@+id/checkBoxBlue"
+                            android:checked="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_toLeftOf="@+id/radioButton3"
+                            android:layout_alignLeft="@+id/button2"
+                            android:layout_alignStart="@+id/button2"
+                            android:layout_column="1" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Green"
+                            android:background="#4caf50"
+                            android:id="@+id/checkBoxGreen"
+                            android:checked="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_column="2" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lime"
+                            android:background="#cddc39"
+                            android:id="@+id/checkBoxLime"
+                            android:layout_below="@+id/radioButton"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:checked="false"
+                            android:layout_toLeftOf="@+id/radioButton5"
+                            android:layout_toStartOf="@+id/radioButton5"
+                            android:layout_column="0" />
+
+                        <CheckBox
+                            android:text="Orange"
+                            android:background="#ff9800"
+                            android:id="@+id/checkBoxOrange"
+                            android:checked="false"
+                            android:layout_below="@+id/radioButton"
+                            android:layout_alignRight="@+id/radioButton2"
+                            android:layout_alignEnd="@+id/radioButton2"
+                            android:layout_column="1" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pink"
+                            android:background="#e91e63"
+                            android:id="@+id/checkBoxPink"
+                            android:layout_below="@+id/radioButton3"
+                            android:checked="false"
+                            android:layout_alignLeft="@+id/radioButton3"
+                            android:layout_alignStart="@+id/radioButton3"
+                            android:layout_alignRight="@+id/radioButton3"
+                            android:layout_alignEnd="@+id/radioButton3"
+                            android:layout_column="2" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Purple"
+                            android:background="#9c27b0"
+                            android:id="@+id/checkBoxPurple"
+                            android:layout_below="@+id/radioButton4"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:checked="false"
+                            android:layout_alignRight="@+id/radioButton4"
+                            android:layout_alignEnd="@+id/radioButton4"
+                            android:layout_column="0" />
+
+                        <CheckBox
+                            android:text="Teal"
+                            android:background="#009688"
+                            android:id="@+id/checkBoxTeal"
+                            android:checked="false"
+                            android:layout_above="@+id/button2"
+                            android:layout_alignRight="@+id/button2"
+                            android:layout_alignEnd="@+id/button2"
+                            android:layout_column="1" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yellow"
+                            android:background="#ffeb3b"
+                            android:id="@+id/checkBoxYellow"
+                            android:checked="false"
+                            android:layout_alignTop="@+id/radioButton7"
+                            android:layout_alignLeft="@+id/radioButton5"
+                            android:layout_alignStart="@+id/radioButton5"
+                            android:layout_column="2" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:text="시작색상적용"
+                            android:textSize="6pt"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/buttonlayout"
+                            android:id="@+id/startcolor"
+                            android:layout_above="@+id/relativeLayout2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_column="0"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="정지색상적용"
+                            android:textSize="6pt"
+                            android:background="@drawable/buttonlayout"
+                            android:textColor="#ffffff"
+                            android:id="@+id/stopcolor"
+                            android:layout_alignTop="@+id/button3"
+                            android:layout_toRightOf="@+id/button3"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_column="1"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="초기화"
+                            android:background="@drawable/buttonlayout"
+                            android:textColor="#ffffff"
+                            android:id="@+id/resetcolor"
+                            android:layout_column="2"
+                            android:layout_weight="1" />
+                    </TableRow>
+                </TableLayout>
+
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(한번에 하나의 색상만 적용가능)"
+            android:textColor="#ffffff"
+            android:id="@+id/textView3"
+            android:layout_above="@+id/radioGroup2"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="7dp"
+        android:background="#ff888888">
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff888888">
+    </LinearLayout>
+
+
+</RelativeLayout>
